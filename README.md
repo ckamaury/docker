@@ -14,5 +14,6 @@ Use
 ------------
 
 - Install your application in ```./project``` folder.
-- Launch docker-compose ```launch_local_server.sh```
+- Launch docker-compose ```launch_local_server.sh```.
+- Look at ```launch_local_server.sh``` for command examples.
 

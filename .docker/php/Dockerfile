@@ -1,11 +1,9 @@
 FROM php:8.2-fpm
 
-RUN apt-get update && apt-get install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
-    && docker-php-ext-install intl opcache pdo pdo_mysql \
-    && pecl install apcu xdebug \
-    && docker-php-ext-enable apcu xdebug \
-    && docker-php-ext-configure zip \
-    && docker-php-ext-install zip
+ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
+
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    install-php-extensions gd xdebug zip pdo_mysql intl
 
 # INSTALL COMPOSER
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
