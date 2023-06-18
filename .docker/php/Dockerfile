@@ -14,3 +14,6 @@ RUN mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
 # WORK DIR
 WORKDIR /var/www/project
+
+# KEEP HYSTORY COMMAND
+RUN ln -sf /bin/bash /bin/sh
